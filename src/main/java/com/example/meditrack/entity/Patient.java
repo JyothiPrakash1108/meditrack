@@ -8,8 +8,9 @@ public class Patient extends Person{
         this.medicalHistory = medicalHistory;
     }
 
-    public Patient(Long id, String name, int age, String phoneNumber, String email, String medicalHistory) {
-        super(id, name, age, phoneNumber, email);
+    public Patient(String name, int age, String phoneNumber, String email, String medicalHistory) {
+        super(name, age, phoneNumber, email);
+        super.id = 
         this.medicalHistory = medicalHistory;
     }
 

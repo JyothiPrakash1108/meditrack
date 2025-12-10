@@ -1,7 +1,7 @@
 package com.example.meditrack.entity;
 
 public abstract class Person {
-    private Long id;
+    private String id;
     private String name;
     private int age;
     private String phoneNumber;
@@ -9,8 +9,7 @@ public abstract class Person {
     
     public Person() {
     }
-    public Person(Long id, String name, int age, String phoneNumber, String email) {
-        this.id = id;
+    public Person( String name, int age, String phoneNumber, String email) {
         this.name = name;
         this.age = age;
         this.phoneNumber = phoneNumber;
