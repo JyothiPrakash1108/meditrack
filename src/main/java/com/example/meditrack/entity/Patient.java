@@ -7,10 +7,13 @@ public class Patient extends Person{
     public Patient(String medicalHistory) {
         this.medicalHistory = medicalHistory;
     }
-
     public Patient(String name, int age, String phoneNumber, String email, String medicalHistory) {
         super(name, age, phoneNumber, email);
-        super.id = 
+        this.medicalHistory = medicalHistory;
+    }
+    public Patient(String id,String name, int age, String phoneNumber, String email, String medicalHistory) {
+        super(id,name, age, phoneNumber, email);
+        
         this.medicalHistory = medicalHistory;
     }
 

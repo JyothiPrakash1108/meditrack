@@ -9,16 +9,22 @@ public abstract class Person {
     
     public Person() {
     }
-    public Person( String name, int age, String phoneNumber, String email) {
+    
+    public Person(String id, String name, int age, String phoneNumber, String email) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
-    public Long getId() {
+
+    public Person(String name, int age, String phoneNumber, String email) {
+        this(null, name, age, phoneNumber, email);
+    }
+    public String getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
     public String getName() {
