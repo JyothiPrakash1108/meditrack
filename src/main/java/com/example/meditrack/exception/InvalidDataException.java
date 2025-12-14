@@ -1,5 +1,7 @@
 package com.example.meditrack.exception;
 
-public class InvalidDataException {
-
+public class InvalidDataException extends RuntimeException{
+    public InvalidDataException(String msg){
+        super(msg);
+    }
 }
