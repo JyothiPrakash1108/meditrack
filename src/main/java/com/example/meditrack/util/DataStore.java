@@ -1,8 +1,8 @@
 package com.example.meditrack.util;
 
 
-import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -15,8 +15,8 @@ public class DataStore<T> {
     public Optional<T> getById(String id){
         return Optional.ofNullable(store.get(id));
     }
-    public Optional<Collection<T>> getAll(){
-        return Optional.ofNullable(store.values());
+    public List<T> getAll(){
+        return (List<T>) store.values();
     }
     public T remove(String id){
         return store.remove(id);

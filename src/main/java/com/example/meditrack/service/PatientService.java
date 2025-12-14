@@ -12,7 +12,10 @@ import com.example.meditrack.util.Validator;
 public class PatientService {
     private DataStore<Patient> patientStore;
     private IdStrategy idStrategy ;
-    public 
+    public PatientService(DataStore patienStore,IdStrategy idStrategy){
+        this.patientStore = patienStore;
+        this.idStrategy = idStrategy;
+    }
     public Patient addPatient(String name,int age,String phoneNumber,String email,String medicalPrescription){
         String id = idStrategy.generate();
         Validator.validateAge(age);
@@ -23,7 +26,7 @@ public class PatientService {
         patientStore.add(id, createdPatient);
         return createdPatient;
     }
-    public Optional<Patient> searchPatient(String id){
+    public Optional<Patient> searchPatientById(String id){
         return patientStore.getById(id);
     }
     public List<Patient> searchPatient(String name){
