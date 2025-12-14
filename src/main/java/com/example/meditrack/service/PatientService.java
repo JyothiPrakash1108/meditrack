@@ -50,5 +50,5 @@ public class PatientService {
             throw new InvalidDataException("Patient with ID " + id + " not found.");
         }
     }
-
+    
 }
