@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.example.meditrack.entity.Patient;
+import com.example.meditrack.exception.InvalidDataException;
 import com.example.meditrack.interfaces.IdStrategy;
 import com.example.meditrack.util.DataStore;
 import com.example.meditrack.util.Validator;
@@ -12,7 +13,7 @@ import com.example.meditrack.util.Validator;
 public class PatientService {
     private DataStore<Patient> patientStore;
     private IdStrategy idStrategy ;
-    public PatientService(DataStore patienStore,IdStrategy idStrategy){
+    public PatientService(DataStore<Patient> patienStore,IdStrategy idStrategy){
         this.patientStore = patienStore;
         this.idStrategy = idStrategy;
     }
@@ -35,7 +36,19 @@ public class PatientService {
         for(Patient patient : patientStore.getAll()){
             if (patient.getName().equalsIgnoreCase(name)) {
             result.add(patient);
+            }
         }
         return result;
     }
+    public boolean deletePatientById(String id) {
+        Optional<Patient> patientOpt = patientStore.getById(id);
+    
+        if(patientOpt.isPresent()) {
+            patientStore.remove(id);
+         return true;
+        } else {
+            throw new InvalidDataException("Patient with ID " + id + " not found.");
+        }
+    }
+
 }
